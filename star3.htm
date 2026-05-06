@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Wi-Fi - Acesso Instagram</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 { margin-bottom: 10px; }
+    p { font-size: 14px; margin-bottom: 20px; }
+
+    .loading {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>📶 Wi-Fi Free</h1>
+  <p>Redirecionando para o Instagram...</p>
+
+  <div class="loading">
+    Aguarde, você será conectado automaticamente...
+  </div>
+</div>
+
+<script>
+  const instagramURL = "https://www.instagram.com/star.festaseeventos?igsh=ejByMXRoNTlmdmR2&utm_source=qr";
+
+  const params = new URLSearchParams(window.location.search);
+  const redirect = params.get("redirect");
+
+  // Abre Instagram automaticamente
+  setTimeout(() => {
+    window.open(instagramURL, "_blank");
+  }, 1000);
+
+  // Libera Wi-Fi automaticamente
+  setTimeout(() => {
+    if (redirect) {
+      window.location.href = redirect;
+    } else {
+      window.location.href = "https://www.instagram.com/star.festaseeventos?igsh=ejByMXRoNTlmdmR2&utm_source=qr";
+    }
+  }, 4000);
+</script>
+
+</body>
+</html>
